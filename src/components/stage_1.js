@@ -33,9 +33,6 @@ const Stage1 = () => {
         return true
     }
 
-
-    console.log(context.state)
-
     return(
         <>
             <Form onSubmit={handleSubmit} className="mt-4">
@@ -57,37 +54,31 @@ const Stage1 = () => {
                 <Button className='miami' variant='primary' type='submit'>
                     Add player
                 </Button>
-
                 { context.state.players && context.state.players.length > 0 ?
                 <>
                     <hr/>
                     <div>
-                        <ul className="list-group">
-                            {   context.state.players.map((player,idx)=>(
-                                <li key={idx} className="list-group-item d-flex
-                                justify-content-betwwen align-items-center
-                                list-group-item-action">
+                        <ul className='list-group'>
+                            { context.state.players.map((player,idx)=>(
+                                <li key={idx} className="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
                                     {player}
-                                    <span 
-                                        className="badge badge-danger"
+                                    <span
+                                        className='badge badge-danger'
                                         onClick={()=> context.removePlayer(idx)}
                                     >
                                         X
                                     </span>
                                 </li>
                             ))
-
                             }
                         </ul>
-                        <div
-                            className="action_button"
+                        <div 
+                            className='action_button'
                             onClick={()=> context.next()}
                         >
-                            Next
+                            NEXT
                         </div>
                     </div>
-
-
                 </>
                 :null}
             </Form>
